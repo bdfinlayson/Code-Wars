@@ -63,3 +63,26 @@ var nato = (function() {
       //  Test.assertEquals(actual, expected, [optional] message)
       //  Test.assertSimilar(actual, expected, [optional] message)
       //  Test.assertNotEquals(actual, expected, [optional] message)
+
+var n=function(){var a={A:"Alpha",B:"Bravo",C:"Charlie",D:"Delta",E:"Echo",F:"Foxtrot",G:"Golf",H:"Hotel",I:"India",J:"Juliett",K:"Kilo",L:"Lima",M:"Mike",N:"November",O:"Oscar",P:"Papa",Q:"Quebec",R:"Romeo",S:"Sierra",T:"Tango",U:"Uniform",V:"Victor",W:"Whiskey",X:"X-ray",Y:"Yankee",Z:"Zulu"};return function(b){return b.split("").map(function(b){return a[b.toUpperCase()]}).join(" ")}}();
+function randomString(){for(var a="",b="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",c=0;5>c;c++)a+=b.charAt(Math.floor(Math.random()*b.length));return a}
+
+var staticTests = [
+  'babble',
+  'dabble',
+  'caring',
+  'herring',
+  'park',
+  'dark',
+  'bark',
+  'nancy',
+  'mancy',
+  'supercalifragilisticexpialidocious'
+];
+
+for (var i = 0, rand; i < staticTests.length; i++) {
+  Test.assertSimilar(nato(staticTests[i]), n(staticTests[i]));
+
+  rand = randomString();
+  Test.assertSimilar(nato(rand), n(rand));
+}
