@@ -15,6 +15,28 @@ Attention: If the number has leading zeros the amount of digits should be consid
 Your Solution:
 function incrementString (input) {
   // return incrementedString
+
+
+
+function incrementString (input) {
+  // return incrementedString
+  if (input.length > 0 && /\d/.test(input[input.length - 1])) {
+    // ends with number, increment it
+    var numericPart = input.match(/\d+$/)[0],
+        textPart = input.substr(0, input.length - numericPart.length);
+    var oldNumberLength = numericPart.length;
+    var newNumber = parseInt(numericPart, 10) + 1,
+        newNumberLength = (newNumber + '').length;
+    if (newNumberLength >= oldNumberLength) {
+      // no need to add leading zeros
+      return textPart + newNumber;
+    } else {
+      var leadingZeroes = oldNumberLength - newNumberLength;
+      return textPart + (new Array(leadingZeroes + 1)).join('0') + newNumber;
+    }
+  } else {
+    return input + '1';
+  }
 }
 
 
