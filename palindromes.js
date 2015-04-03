@@ -15,7 +15,7 @@
 
 function isPalindrome(str) {
   //take word and remove all punctuation and whitespace
-  str = str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()\'\s]/g,"");
+  str = str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()\'\s]/g, "");
   //then split it into an array, reverse it, make it lower case, and compare it
   if (str.split('').reverse().join('').toLowerCase() === str.split('').join('').toLowerCase()) {
     console.log('is true');
