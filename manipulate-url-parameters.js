@@ -15,6 +15,15 @@
  * @param {string} param - The parameter that we want to change or add
  * @returns {string} The result URL.
  */
-function addOrChangeUrlParameter (url, param) {
+function addOrChangeUrlParameter(url, param) {
   // TODO: Make something awesome
+  var paramType = param.substring(0, 2);
+
+  if (url.search(/\?/) === -1) {
+    return url + '?' + param;
+  } else if (url.indexOf(paramType) > -1) {
+    return url.replace(/\?.*/, '') + '?' + param;
+  } else {
+    return url + '&' + param;
+  }
 }
